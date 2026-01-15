@@ -110,6 +110,7 @@
      --name gym-web-app \
      --deployment-container-image-name gymwebacr.azurecr.io/gym-web:latest
    ```
+   
 
 4. **Configure Environment Variables:**
    ```bash
