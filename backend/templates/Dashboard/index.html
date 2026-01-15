@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><!-- [Head] start -->
+<head>
+    {% include "Dashboard/base.html" %}
+    {% load static %} 
+</head><!-- [Head] end -->
+<!-- [Body] Start -->
+<body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-layout="vertical" data-pc-direction="ltr" data-pc-theme_contrast="" data-pc-theme="light"><!-- [ Pre-loader ] start -->
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div><!-- [ Pre-loader ] End --> 
+    {% include "header.html" %}  
+    {% include "sidebar.html" %}  
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">   
+        <div class="pc-content"> 
+            {% block content %} 
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">   
+                            <h3 class="mb-4">Visualize Excel File</h3>
+                            <hr>
+                            <p>Upload your Excel file containing the review data for visualisation. Accepted formats are .xls and .xlsx.</p>
+                            <label for="excel_file_upload" class="clickable btn btn-primary"><i class="ti ti-upload"></i> Upload Excel File</label>
+                            <input class="form-control" style="display:none" type="file" accept=".xls, .xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" name="excel_file" id="excel_file_upload"></input> 
+                        </div>
+                    </div>
+                </div>        
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">   
+                            <h3 class="mb-4">Uploaded Data Overview</h3>
+                            <hr>
+                            <div id="file-data-datagrid"></div>
+                        </div>
+                    </div>
+                </div>        
+            </div>
+            {% endblock content %}
+        </div>
+    </div> 
+    <!-- [ Main Content ] end -->
+    {% block footer %} 
+    {% endblock footer %}  
+    <!-- Required Js --> 
+    <script src="{% static "js/plugins/popper.min.js" %}"></script>
+    <script src="{% static "js/plugins/simplebar.min.js" %}"></script>
+    <script src="{% static "js/plugins/bootstrap.min.js" %}"></script>   
+    <script src="{% static "js/plugins/script.js" %}"></script>
+    <script src="{% static "js/plugins/theme.js" %}"></script>     
+    <script src="{% static "js/pages/dashboard.js" %}"></script> 
+    <script src="{% static "js/pages/dashboard_ws.js" %}"></script>   
+</body>
+<!-- [Body] end -->
+
+</html>
